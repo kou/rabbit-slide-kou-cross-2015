@@ -1,4 +1,4 @@
-= Groongaの特徴
+= Groongaの\n特徴
 
 : author
    須藤功平
@@ -15,5 +15,109 @@
 
 = 他のエンジンとの違い
 
-  * 既存システムとの連携
+  * ((*既存システムとの連携*))
+  * 毎月肉の日リリース
+  * Java free
+
+= 連携例：Mroonga
+
+    # image
+    # src = images/mroonga-logo.svg
+    # relative_height = 50
+
+  * Mroonga(('note:（むるんが）')) =\n
+    MySQL + Groonga(('note:（ぐるんが）'))
+
+= MySQLと連携するメリット
+
+  * SQLを使える
+    * クライアントライブラリーが充実
+    * 既存の知識を使える
+  * 運用ノウハウを使える
+    * レプリケーションの仕方
+    * メトリックスの取り方
+
+= Mroognaで索引作成
+
+  # coderay sql
+
+  -- ストレージエンジンを変更
+  ALTER TABLE table ENGINE=Mroonga;
+  -- 全文検索用索引を作成
+  ALTER TABLE table
+    ADD FULLTEXT INDEX (column);
+
+= Mroognaで全文検索
+
+  # coderay sql
+
+  SELECT * FROM table
+    WHERE MATCH (column)
+          AGAINST ("+単語1 +単語2"
+                   IN BOOLEAN MODE);
+
+= 連携例：groonga-httpd
+
+  * Groonga用HTTPサーバー =\n
+    nginx + Groonga
+    * nginxのモジュールとして実装
+
+= nginxと連携するメリット
+
+  * nginx提供のHTTP機能を使える
+    * gzip圧縮・HTTPS・認証・…
+  * 運用ノウハウを使える
+    * 設定方法
+    * チューニング方法(('note:（例：ワーカー数の設定）'))
+    * 無停止アップグレード
+
+= 連携例：Rroonga
+
+    # image
+    # src = images/rroonga-logo.svg
+    # relative_height = 50
+
+  * Rroonga(('note:（るるんが）')) =\n
+    Ruby + Groonga
+    * SQLite3のような手軽さで全文検索\n
+      (('note:（サーバーではなく、ライブラリーとして利用）'))
+
+= Rubyと連携するメリット
+
+  * Rubyとその周辺の機能を使える
+    * 書きやすい
+    * ライブラリーを使ってデータ加工
+  * サーバーがいらない
+    * 小規模なシステムを手早く構築可能
+    * クラウドワークスさん：\n
+      社員名簿・日報の全文検索で利用
+
+= Rroongaでデータ登録
+
+  # coderay ruby
+
+  table = Groonga["table"]
+  table.add("key",
+            :value1 => "value1",
+            :value2 => "value2")
+
+= Rroongaで全文検索
+
+  # coderay ruby
+
+  records = table.select do |record|
+    (record.value1 =~ "単語1") &
+      (record.value2 =~ "単語2")
+  end
+
+= 連携例：その他
+
+  * PGroonga(('note:（ぴーじーるんが）')) =\n
+    PostgreSQL + Groonga
+  * ROMA(('note:（Ruby製の分散KVS）'))
+
+= 他のエンジンとの違い
+
+  * ((*既存システムとの連携*))
+  * 毎月肉の日リリース
   * Java free

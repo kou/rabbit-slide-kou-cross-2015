@@ -11,6 +11,8 @@ CROSS 2015のセッション「全文検索エンジン群雄割拠〜あなた�
 images/以下にある以下のファイル。
 
   * groonga-logo.svg
+  * mroonga-logo.svg
+  * rroonga-logo.svg
 
 CC BY-SA 3.0
 
