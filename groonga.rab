@@ -56,6 +56,16 @@
           AGAINST ("+単語1 +単語2"
                    IN BOOLEAN MODE);
 
+= Mroongaの事例
+
+  * livedoor Blog\n
+    (('note:http://www.slideshare.net/kazeburo/mroonga-in-ablogservice'))
+  * Yahoo! Japanさんの社内\n
+    (('note:「全文検索エンジンGroongaを囲む夕べ5」で紹介'))
+  * GMOメディアさんの\n
+    各種サービス\n
+    (('note:http://tech.gmo-media.jp/post/95690476544/data-migration-from-tritonn-to-mroonga'))
+
 = 連携例：groonga-httpd
 
   * Groonga用HTTPサーバー =\n
@@ -70,6 +80,16 @@
     * 設定方法
     * チューニング方法(('note:（例：ワーカー数の設定）'))
     * 無停止アップグレード
+
+= groonga-httpdの設定
+
+  http {
+    server {
+      location /d/ {
+        groonga on;
+      }
+    }
+  }
 
 = 連携例：Rroonga
 
@@ -89,8 +109,6 @@
     * ライブラリーを使ってデータ加工
   * サーバーがいらない
     * 小規模なシステムを手早く構築可能
-    * クラウドワークスさん：\n
-      社員名簿・日報の全文検索で利用
 
 = Rroongaでデータ登録
 
@@ -109,6 +127,16 @@
     (record.value1 =~ "単語1") &
       (record.value2 =~ "単語2")
   end
+
+= Rroongaの事例
+
+  * クラウドワークスさん\n
+    (('note:社員名簿・日報の全文検索で利用'))
+  * Milkode(('note:（ソースコード検索エンジン）'))\n
+    (('note:http://milkode.ongaeshi.me/'))
+  * るりまサーチ\n
+    (('note:（Rubyのリファレンスマニュアル検索システム）'))\n
+    (('note:http://docs.ruby-lang.org/ja/search/'))
 
 = 連携例：その他
 
