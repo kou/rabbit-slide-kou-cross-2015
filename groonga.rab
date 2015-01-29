@@ -66,6 +66,16 @@
     各種サービス\n
     (('note:http://tech.gmo-media.jp/post/95690476544/data-migration-from-tritonn-to-mroonga'))
 
+= MariaDBにバンドル
+
+  * MariaDB
+    * MySQLのfork
+    * ケースによってはMySQLより高速
+  * 10.0.15からMroongaをバンドル
+    * MariaDBをインストール→\n
+      Mroongaはインストール済み！
+    * より簡単に使える！
+
 = 連携例：groonga-httpd
 
   * Groonga用HTTPサーバー =\n
