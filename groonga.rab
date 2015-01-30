@@ -37,7 +37,7 @@
     * レプリケーションの仕方
     * メトリックスの取り方
 
-= Mroognaで索引作成
+= Mroongaで索引作成
 
   # coderay sql
 
@@ -47,7 +47,7 @@
   ALTER TABLE table
     ADD FULLTEXT INDEX (column);
 
-= Mroognaで全文検索
+= Mroongaで全文検索
 
   # coderay sql
 
